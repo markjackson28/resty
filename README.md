@@ -1,3 +1,40 @@
+<h1 align="center">Welcome to Class 26 Lab 👋</h1>
+<p>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
+
+## Install
+
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm run start
+```
+
+## Run tests
+
+```sh
+npm run test
+```
+
+## Author
+
+👤 **Mark Thanadabouth**
+
+## Deployment
+
+[Lab 26 codesandbox](https://codesandbox.io/s/inspiring-fast-txi2r?file=/src/index.js)
+
+## UML
+
+![lab26UML](./img/lab26UML.jpg)
+
 # Component Based UI
 
 ## Lab Requirements
@@ -11,21 +48,5 @@ Students will be creating and styling a Counter application. Look for the follow
 - Button Handlers
   - Bonus if they can wire both buttons with one handler
 
-### Grading Standards & Notes
-
-- Features
-  - As noted
-- Code Quality
-  - Looking for proper class syntax.
-  - Good file naming and folder structure.
-  - Styles well written, using SASS variables/nesting and thought through beyond simple colors.
-- Testing
-  - Not Required
-- Deployment
-  - Code Sandbox only.
-- Documentation
-  - Quality README
-
-### Lab Assistance Notes
-
-- The first and most important part of the lab assignment is to draw a process diagram of the starter code and state as events happen. Once the students understand that, they can move on.
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
