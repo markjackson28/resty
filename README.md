@@ -29,7 +29,7 @@ npm run test
 
 ## Deployment
 
-[Lab 26 codesandbox](https://codesandbox.io/s/inspiring-fast-txi2r?file=/src/index.js)
+[Phase 1 Deployment](https://codesandbox.io/s/inspiring-fast-txi2r?file=/src/index.js)
 
 ## UML
 
@@ -39,6 +39,8 @@ npm run test
 
 ## Lab Requirements
 
+### Phase 1
+
 Students will be creating and styling a Counter application. Look for the following attributes
 
 - `Header`, `Footer`, and `Counter` components to separate files
@@ -47,6 +49,15 @@ Students will be creating and styling a Counter application. Look for the follow
 - Proper state management
 - Button Handlers
   - Bonus if they can wire both buttons with one handler
+
+### Phase 2
+
+We will be receiving user input in preparation of connecting to live APIs, using the `useState()` hook in our functional components
+
+The following user stories detail the major functionality for this phase of the project.
+
+- As a user, I want to enter the REST Method and URL to an API
+- As a user, I want to see a summary of my request as well as results returned from an API request in my browser in a readable format
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

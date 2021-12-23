@@ -1,28 +1,52 @@
+import React, { useState } from "react";
 import "./form.scss";
 
 const Form = (props) => {
-  let handleSubmit = (e) => {
+  const [url, setUrl] = useState('');
+  const [method, setMethod] = useState('');
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
-      method: "GET",
-      url: "https://pokeapi.co/api/v2/pokemon"
+      method: method,
+      url: url
     };
     props.handleApiCall(formData);
   };
+
+  const handleUrl = (e) => {
+    setUrl(e.target.value);
+  }
+
+  const handleGet = (e) => {
+    setMethod(e.target.value);
+  }
+
+  const handlePost = (e) => {
+    setMethod(e.target.value);
+  }
+
+  const handlePut = (e) => {
+    setMethod(e.target.value);
+  }
+
+  const handleDelete = (e) => {
+    setMethod(e.target.value);
+  }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
-          <input name="url" type="text" />
+          <input name="url" type="text" onChange={handleUrl}/>
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span id="get">GET</span>
-          <span id="post">POST</span>
-          <span id="put">PUT</span>
-          <span id="delete">DELETE</span>
+          <button id="get" value="GET" type="submit" onClick={handleGet}>GET</button>
+          <button id="post" value="POST" type="submit" onClick={handlePost}>POST</button>
+          <button id="put" value="PUT" type="submit" onClick={handlePut}>PUT</button>
+          <button id="delete" value="DELETE" type="submit" onClick={handleDelete}>DELETE</button>
         </label>
       </form>
     </>
