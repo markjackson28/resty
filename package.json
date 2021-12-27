@@ -4,7 +4,11 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "http://markjackson28.github.io/resty",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "node-sass": "^6.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -12,9 +16,13 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
