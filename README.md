@@ -31,6 +31,8 @@ npm run test
 
 [Phase 1 Deployment](https://codesandbox.io/s/inspiring-fast-txi2r?file=/src/index.js)
 
+[Phase 2 Deployment(gh-pages)](https://markjackson28.github.io/resty/)
+
 ## UML
 
 ![lab26UML](./img/lab26UML.jpg)
@@ -58,6 +60,10 @@ The following user stories detail the major functionality for this phase of the 
 
 - As a user, I want to enter the REST Method and URL to an API
 - As a user, I want to see a summary of my request as well as results returned from an API request in my browser in a readable format
+
+### Resources
+
+[How to deploy to gh-pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14)
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
