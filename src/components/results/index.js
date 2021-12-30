@@ -1,6 +1,7 @@
 import "./results.scss";
 
 const Results = (props) => {
+  // console.log('*', props.data);
   return (
     <section>
       {
@@ -16,4 +17,3 @@ const Results = (props) => {
 };
 
 export default Results;
-

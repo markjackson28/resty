@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import './app.scss';
 
@@ -18,19 +19,26 @@ function App() {
 
   const callApi = async (requestParams) => {
     setRequestParams(requestParams);
+    // console.log('*', requestParams);
     setLoading(true);
-    // mock output
-    await setTimeout(() => {
-      const data = {
-        count: 2,
-        results: [
-          { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-          { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-        ],
-      };
-      setData(data);
-      setLoading(false);
-    }, 1000);
+
+      if (requestParams.url === '') {
+        setData('URL Empty, try again');
+        setLoading(false);
+      } else {
+        await setTimeout(() => {
+          axios.get(requestParams.url)
+            // .then((response) => response.data)
+            .then((json) => {
+              setData(json)
+            })
+            .catch((e) => {
+              console.log('Error', e);
+              setData('Invalid URL, Please try again');
+            });
+          setLoading(false);
+        }, 1000);
+      }
   }
 
   return (
