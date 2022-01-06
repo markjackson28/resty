@@ -61,6 +61,23 @@ The following user stories detail the major functionality for this phase of the 
 - As a user, I want to enter the REST Method and URL to an API
 - As a user, I want to see a summary of my request as well as results returned from an API request in my browser in a readable format
 
+### Phase 3
+
+In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests
+
+The following user stories detail the major functionality for this phase of the project.
+
+- As a user, I want to enter the URL to an API and issue a GET request so that I can retrieve it’s data
+- As a user, I want to see the results returned from an API request in my browser in a readable format
+
+### Phase 4
+
+In phase 4, we will be tracking every API call and storing it in history
+
+The following user stories detail the major functionality for this phase of the project.
+
+- As a user, I want to see a list of my previous API calls, so that I can see the results again, quickly
+
 ### Resources
 
 [How to deploy to gh-pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14)

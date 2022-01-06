@@ -1,9 +1,9 @@
 import "./results.scss";
 
 const Results = (props) => {
-  // console.log('*', props.data);
   return (
     <section>
+      <h1>Results</h1>
       {
         // From solution
         props.loading
