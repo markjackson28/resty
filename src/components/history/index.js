@@ -1,6 +1,7 @@
 import "./history.scss";
 
 const History = (props) => {
+  console.log('sdfsdfa', props.history)
   return (
     <section>
       <h1>History</h1>
@@ -10,7 +11,11 @@ const History = (props) => {
           ?
           <div>LOADING...</div>
           :
-          <pre>{props.requestParams ? props.requestParams.method : null}</pre>
+          <div>
+            {props.history ? props.history.map(item =>
+              <li>URL: {item.url} Method: {item.method}</li>
+            ) : null}
+          </div>
       }
     </section>
   );

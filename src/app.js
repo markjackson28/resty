@@ -11,7 +11,7 @@ const initialState = {
   data: null,
   requestParams: {},
   loading: false,
-  history: null
+  history: []
 };
 
 function reducer(state = initialState, action) {
@@ -24,13 +24,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         data: [payload],
-        history: payload
       };
     case "PARAMS/REQ_PARAMS":
       return {
         ...state,
         requestParams: payload, 
-        history: payload
+        history: [...state.history, payload]
       }
     case "LOADING/SET_LOADING":
       return {
@@ -46,7 +45,7 @@ function App() {
   console.log(state);
 
   const callApi = async (requestParams) => {
-    console.log('running api');
+    // console.log('running api');
     const action = {
       type: "PARAMS/REQ_PARAMS",
       payload: requestParams
@@ -78,7 +77,6 @@ function App() {
               type: "DATA/SETTING_DATA",
               payload: json.data
             }
-            // console.log(json);
             dispatch(action);
           })
           .catch((e) => {
