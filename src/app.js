@@ -1,11 +1,11 @@
 import React, { useState, useReducer } from 'react';
 import axios from 'axios';
-import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 import History from './components/history';
+import './app.scss';
 
 const initialState = {
   data: null,
@@ -103,7 +103,7 @@ function App() {
       <div data-testid="url">URL: {state.requestParams.url}</div>
       <Form handleApiCall={callApi} />
       <Results loading={state.loading} data={state.data} />
-      <History loading={state.loading} history={state.history}/>
+      <History loading={state.loading} history={state.history} handleApiCall={callApi}/>
       <Footer />
     </React.Fragment>
   );

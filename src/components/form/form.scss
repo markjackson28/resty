@@ -1,5 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
 $backgroundColor: #efefef;
 $radius: 40%;
+
+button{
+ margin-right: 10px;
+}
 
 form {
   display: inline-block;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
 import "./form.scss";
 
 const Form = (props) => {
@@ -38,15 +39,15 @@ const Form = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>URL: </span>
+          <span>URL:  </span>
           <input name="url" type="text" onChange={handleUrl}/>
-          <button type="submit">GO!</button>
+          <Button type="submit">GO!</Button>
         </label>
         <label className="methods">
-          <button id="get" value="GET" type="submit" onClick={handleGet}>GET</button>
-          <button id="post" value="POST" type="submit" onClick={handlePost}>POST</button>
-          <button id="put" value="PUT" type="submit" onClick={handlePut}>PUT</button>
-          <button id="delete" value="DELETE" type="submit" onClick={handleDelete}>DELETE</button>
+          <Button id="get" value="GET" type="submit" onClick={handleGet}>GET</Button>
+          <Button id="post" value="POST" type="submit" onClick={handlePost}>POST</Button>
+          <Button id="put" value="PUT" type="submit" onClick={handlePut}>PUT</Button>
+          <Button id="delete" value="DELETE" type="submit" onClick={handleDelete}>DELETE</Button>
         </label>
       </form>
     </>

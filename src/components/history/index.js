@@ -1,7 +1,17 @@
 import "./history.scss";
+import React, { useState } from 'react';
 
 const History = (props) => {
-  console.log('sdfsdfa', props.history)
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    const formData = {
+      method: e.method,
+      url: e.url
+    };
+    props.handleApiCall(formData);
+  };
+
   return (
     <section>
       <h1>History</h1>
@@ -13,7 +23,11 @@ const History = (props) => {
           :
           <div>
             {props.history ? props.history.map(item =>
-              <li>URL: {item.url} Method: {item.method}</li>
+              <li
+                onClick={() => handleSubmit(item)}
+              >
+                URL: {item.url} Method: {item.method}
+              </li>
             ) : null}
           </div>
       }
