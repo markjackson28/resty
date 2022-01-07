@@ -3,6 +3,7 @@ import "./results.scss";
 const Results = (props) => {
   return (
     <section>
+      <h1>Results</h1>
       {
         // From solution
         props.loading
@@ -16,4 +17,3 @@ const Results = (props) => {
 };
 
 export default Results;
-

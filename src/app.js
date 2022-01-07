@@ -1,45 +1,109 @@
-import React, { useState } from 'react';
-
-import './app.scss';
-
-// Let's talk about using index.js and some other name in the component folder
-// There's pros and cons for each way of doing this ...
+import React, { useState, useReducer } from 'react';
+import axios from 'axios';
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import History from './components/history';
+import './app.scss';
+
+const initialState = {
+  data: null,
+  requestParams: {},
+  loading: false,
+  history: []
+};
+
+function reducer(state = initialState, action) {
+  console.log('running reducer');
+  const { type, payload } = action;
+  switch (type) {
+    default:
+      return state;
+    case "DATA/SETTING_DATA":
+      return {
+        ...state,
+        data: [payload],
+      };
+    case "PARAMS/REQ_PARAMS":
+      return {
+        ...state,
+        requestParams: payload, 
+        history: [...state.history, payload]
+      }
+    case "LOADING/SET_LOADING":
+      return {
+        ...state,
+        loading: payload
+      }
+  }
+}
 
 function App() {
 
-  const [data, setData] = useState(null);
-  const [requestParams, setRequestParams] = useState({});
-  // From solution
-  const [loading, setLoading] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state);
 
   const callApi = async (requestParams) => {
-    setRequestParams(requestParams);
-    setLoading(true);
-    // mock output
-    await setTimeout(() => {
-      const data = {
-        count: 2,
-        results: [
-          { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-          { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-        ],
-      };
-      setData(data);
-      setLoading(false);
-    }, 1000);
+    // console.log('running api');
+    const action = {
+      type: "PARAMS/REQ_PARAMS",
+      payload: requestParams
+    }
+    dispatch(action);
+    const loadingAction = {
+      type: "LOADING/SET_LOADING",
+      payload: true
+    }
+    dispatch(loadingAction);
+
+    if (requestParams.url === '') {
+      const action = {
+        type: "DATA/SETTING_DATA",
+        payload: 'URL Empty, try again'
+      }
+      dispatch(action);
+      const loadingAction = {
+        type: "LOADING/SET_LOADING",
+        payload: false
+      }
+      dispatch(loadingAction);
+    } else {
+      await setTimeout(() => {
+        axios.get(requestParams.url)
+          // .then((response) => response.data)
+          .then((json) => {
+            const action = {
+              type: "DATA/SETTING_DATA",
+              payload: json.data
+            }
+            dispatch(action);
+          })
+          .catch((e) => {
+            console.log('Error', e);
+            const action = {
+              type: "DATA/SETTING_DATA",
+              payload: 'Invalid URL, Please try again'
+            }
+            dispatch(action);
+          });
+        const loadingAction = {
+          type: "LOADING/SET_LOADING",
+          payload: false
+        }
+        dispatch(loadingAction);
+      }, 1000);
+    }
   }
 
   return (
     <React.Fragment>
       <Header />
-      <div>Request Method: {requestParams.method}</div>
-      <div data-testid="url">URL: {requestParams.url}</div>
+      <div>Request Method: {state.requestParams.method}</div>
+      <div data-testid="url">URL: {state.requestParams.url}</div>
       <Form handleApiCall={callApi} />
-      <Results loading={loading} data={data} />
+      <Results loading={state.loading} data={state.data} />
+      <History loading={state.loading} history={state.history} handleApiCall={callApi}/>
       <Footer />
     </React.Fragment>
   );
